@@ -20,10 +20,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         if (update.hasMessage() && update.getMessage().hasText()) {
             var msg = update.getMessage();
-            var reply = new SendMessage(
-                String.valueOf(msg.getChatId()),
-                "Вы написали: " + msg.getText()
-            );
+            var reply = new SendMessage(String.valueOf(msg.getChatId()),"Вы написали: " + msg.getText());
             try {
                 execute(reply);
             } catch (Exception e) {
